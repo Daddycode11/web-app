@@ -1,0 +1,231 @@
+.navigation {
+  background-color: #000000;
+  padding: 10px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end; /* Aligns the navigation to the right */
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #37d437; /* Gold color for links */
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 25px; /* Rounded button style */
+  transition: all 0.3s ease;
+  cursor: pointer; /* Changes cursor to pointer */
+}
+
+/* Hover effects */
+.nav-link:hover {
+  color: #343a40; /* Dark background color */
+  background-color: #37d498; /* Gold background on hover */
+}
+
+.nav-link svg {
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover svg {
+  transform: scale(1.2); /* Icon enlarges slightly on hover */
+}
+
+/* Active link styling */
+.active .nav-link {
+  background-color: #37d498;
+  color: #343a40; /* Dark color for active state */
+}
+
+/* Header styling */
+.header-container {
+  background-color: #343a40; /* Dark background color */
+}
+
+.header-logo {
+  height: 120px;
+}
+
+.header-auth {
+  text-align: right;
+}
+
+.header-auth .btn {
+  margin-left: 10px;
+}
+/* Header Container */
+.header-container {
+  background-color: #004d00; /* Dark Green */
+}
+
+/* Header Logo Styles */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between logo and heading */
+}
+
+.header-logo img {
+  border-radius: 50%; /* Makes the logo rounded */
+}
+
+/* Heading Styles */
+.header-logo h1 {
+  margin: 0;
+  font-size: 1.5rem; /* Adjust font size as needed */
+}
+
+/* Authentication Buttons */
+.header-auth {
+  display: flex;
+  align-items: center;
+}
+
+.header-auth .btn {
+  border-radius: 5px; /* Rounded corners for buttons */
+  padding: 10px 20px; /* Adjust padding for buttons */
+  font-weight: 600; /* Make button text bold */
+}
+
+/* Specific Button Styles */
+.header-auth .btn-light {
+  background-color: #f8f9fa; /* Light background for the Log In button */
+  color: #333; /* Dark text for contrast */
+  border: 1px solid #ccc; /* Light border */
+}
+
+.header-auth .btn-light:hover {
+  background-color: #e2e6ea; /* Darker background on hover */
+}
+
+.header-auth .btn-primary {
+  background-color: #007bff; /* Primary color for Register button */
+  border-color: #007bff; /* Border color */
+}
+
+.header-auth .btn-primary:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-logo h1 {
+    font-size: 1.25rem; /* Adjust font size for smaller screens */
+  }
+
+  .header-auth {
+    gap: 10px; /* Adjust gap for buttons on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .header-logo h1 {
+    font-size: 1rem; /* Further adjust font size for very small screens */
+  }
+
+  .header-auth {
+    flex-direction: column;
+    gap: 5px; /* Adjust gap for vertical button layout */
+  }
+}
+
+/* Header Container */
+.header-container {
+  background-color: #004d00; /* Dark Green */
+  position: relative; /* To position child elements absolutely if needed */
+}
+
+/* Header Logo Styles */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between logo and heading */
+  flex: 1; /* Allow this section to take up remaining space */
+}
+
+.header-logo img {
+  border-radius: 50%; /* Makes the logo rounded */
+}
+
+.header-logo h1 {
+  margin: 0;
+  font-size: 1.5rem; /* Adjust font size as needed */
+  flex: 1; /* Allow this section to take up remaining space */
+  text-align: center; /* Center the text */
+}
+
+/* Authentication Buttons */
+.header-auth {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between buttons */
+}
+
+/* Specific Button Styles */
+.header-auth .btn {
+  border-radius: 5px; /* Rounded corners for buttons */
+  padding: 10px 20px; /* Adjust padding for buttons */
+  font-weight: 600; /* Make button text bold */
+}
+
+.header-auth .btn-light {
+  background-color: #f8f9fa; /* Light background for the Log In button */
+  color: #333; /* Dark text for contrast */
+  border: 1px solid #ccc; /* Light border */
+}
+
+.header-auth .btn-light:hover {
+  background-color: #e2e6ea; /* Darker background on hover */
+}
+
+.header-auth .btn-primary {
+  background-color: #007bff; /* Primary color for Register button */
+  border-color: #007bff; /* Border color */
+}
+
+.header-auth .btn-primary:hover {
+  background-color: #0056b3; /* Darker background on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-logo h1 {
+    font-size: 1.25rem; /* Adjust font size for smaller screens */
+  }
+
+  .header-auth {
+    gap: 8px; /* Adjust gap for buttons on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .header-logo h1 {
+    font-size: 1rem; /* Further adjust font size for very small screens */
+  }
+
+  .header-auth {
+    flex-direction: column;
+    gap: 5px; /* Adjust gap for vertical button layout */
+  }
+}
+
+.bg-dark-green {
+  background-color: #191a19; /* Dark Green Color */
+}
+
+.text-custom-green {
+  color: #004d00; /* Dark Green Text Color */
+}

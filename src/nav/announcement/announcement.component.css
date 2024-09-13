@@ -1,0 +1,63 @@
+/* General Bulletin Board Styles */
+.bulletin-board {
+  background-color: #f5f7fa;
+  padding: 40px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.bulletin-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0056b3;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bulletin-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Announcement Card Styles */
+.announcement-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.announcement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.announcement-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #007bff;
+  margin: 0;
+  padding: 15px;
+  background-color: #e9f4fe;
+  border-bottom: 2px solid #007bff;
+}
+
+.card-body {
+  padding: 15px;
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+.btn-info {
+  background-color: #26cf67;
+  border-color: #26cf67;
+  font-weight: 600;
+}
+
+.btn-info:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}

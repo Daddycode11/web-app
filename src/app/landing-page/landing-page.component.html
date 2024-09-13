@@ -1,0 +1,107 @@
+<nav class="navigation">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a routerLink="home" routerLinkActive="active" class="nav-link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-house-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"
+          />
+          <path
+            d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"
+          />
+        </svg>
+        Home
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="announcement" routerLinkActive="active" class="nav-link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-megaphone-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z"
+          />
+        </svg>
+        Announcements
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="contacts" routerLinkActive="active" class="nav-link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-person-lines-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"
+          />
+        </svg>
+        Contacts
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="about" routerLinkActive="active" class="nav-link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-info-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+          />
+          <path
+            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+          />
+        </svg>
+        About Us
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navigation">
+  <ul class="nav-list">
+    <!-- Your other navigation items... -->
+  </ul>
+</nav>
+
+<main>
+  <div
+    class="header-container d-flex align-items-center justify-content-between p-6 bg-dark-green position-relative"
+  >
+    <div
+      class="header-logo d-flex align-items-center justify-content-start gap-2 text-white"
+    >
+      <!-- Update the path to 'assets/images/logo.png' -->
+      <img
+        src="../../../public/images/logo.png"
+        width="100px"
+        height="100px"
+        class="rounded-circle"
+      />
+      <h1 class="fw-bold fs-4 mt-1">
+        WEB - BASED COMMUNITY SUPPORT HUB FOR THE CULTURE AND TOURIST
+        DESTINATION
+      </h1>
+    </div>
+  </div>
+</main>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,78 @@
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@500;600&display=swap");
+
+/* Card Style */
+.card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-body img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-body img:hover {
+  transform: scale(1.05);
+}
+
+.card-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #0056b3;
+}
+
+.card-text {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  color: #007bff;
+  background-color: #eaf4fe;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.bi {
+  color: #333;
+  background-color: #f0f4f8;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.bi:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: scale(1.1);
+}
+.about-developers-section h2 {
+  font-family: "Roboto", sans-serif; /* Change font */
+  color: #2c3e50; /* Custom color */
+}
+
+.about-developers-section i {
+  color: #e74c3c; /* Icon color */
+  font-size: 1.5rem; /* Icon size */
+}
+
+.about-developers-section .title-text {
+  font-size: 2rem; /* Custom font size for the title */
+}
+.card-text i {
+  color: #3498db; /* Custom color for role icons */
+  font-size: 1.2rem; /* Adjust icon size */
+  margin-right: 5px; /* Add some space between icon and text */
+}
