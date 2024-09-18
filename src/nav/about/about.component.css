@@ -76,3 +76,29 @@
   font-size: 1.2rem; /* Adjust icon size */
   margin-right: 5px; /* Add some space between icon and text */
 }
+.card {
+  max-width: 800px;
+  margin: 0 auto; /* Center the card horizontally */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  text-align: center; /* Center the header text */
+  margin-bottom: 20px;
+}
+
+.card-body {
+  text-align: justify; /* Justify the text */
+}
+
+.card-body p {
+  margin-bottom: 15px;
+}
+
+.card-body h3 {
+  text-align: center; /* Center the subheading */
+  margin-bottom: 10px;
+}
