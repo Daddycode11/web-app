@@ -4,7 +4,7 @@ import { AboutComponent } from '../nav/about/about.component';
 import { ContactsComponent } from '../nav/contacts/contacts.component';
 import { AnnouncementComponent } from '../nav/announcement/announcement.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { LoginComponent } from '../Auth/login-page/login-page.component';
+import { LoginPageComponent } from '../Auth/login-page/login-page.component';
 import { RegisterPageComponent } from '../Auth/register-page/register-page.component';
 import { ProductsComponent } from './products/products.component';
 import { TouristSpotComponent } from './tourist-spot/tourist-spot.component';
@@ -52,7 +52,7 @@ export const routes: Routes = [
       },
       {
         path: 'login-page',
-        component: LoginComponent,
+        component: LoginPageComponent,
       },
       {
         path: 'register-page',
