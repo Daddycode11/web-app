@@ -4,10 +4,13 @@ import { AboutComponent } from '../nav/about/about.component';
 import { ContactsComponent } from '../nav/contacts/contacts.component';
 import { AnnouncementComponent } from '../nav/announcement/announcement.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-
-import { RegisterComponent } from '../Auth/register/register.component';
+import { LoginComponent } from '../Auth/login-page/login-page.component';
+import { RegisterPageComponent } from '../Auth/register-page/register-page.component';
 import { ProductsComponent } from './products/products.component';
 import { TouristSpotComponent } from './tourist-spot/tourist-spot.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 export const routes: Routes = [
   {
@@ -46,6 +49,14 @@ export const routes: Routes = [
       {
         path: 'tourist-spot',
         component: TouristSpotComponent,
+      },
+      {
+        path: 'login-page',
+        component: LoginComponent,
+      },
+      {
+        path: 'register-page',
+        component: RegisterPageComponent,
       },
     ],
   },
