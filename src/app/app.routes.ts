@@ -11,6 +11,8 @@ import { TouristSpotComponent } from './tourist-spot/tourist-spot.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { AdminMainComponent } from './administrator/admin-main/admin-main.component';
+import { TouristMainComponent } from './tourist/tourist-main/tourist-main.component';
 
 export const routes: Routes = [
   {
@@ -59,5 +61,13 @@ export const routes: Routes = [
         component: RegisterPageComponent,
       },
     ],
+  },
+  {
+    path: 'administrator',
+    component: AdminMainComponent,
+  },
+  {
+    path: 'tourist',
+    component: TouristMainComponent,
   },
 ];

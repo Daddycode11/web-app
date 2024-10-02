@@ -1,91 +1,15 @@
 <div class="product-list">
-  <div class="product-card">
-    <img
-      src=".././../assets/biraw.png"
-      alt="Product Name"
-      class="product-image"
-    />
+  <div class="product-card" *ngFor="let product of products$ | async">
+    <img [src]="product.imageUrl" [alt]="product.name" class="product-image" />
     <div class="product-info">
-      <h2 class="product-name">Biraw</h2>
-      <p class="product-description">
-        Experience the essence of traditional craftsmanship with this
-        beautifully handcrafted bilao.
-      </p>
-      <span class="product-price">₱100</span>
-      <button class="add-to-cart">Add to Cart</button>
-    </div>
-  </div>
-  <div class="product-card">
-    <img src="../../assets/bang.png" alt="Product Name" class="product-image" />
-    <div class="product-info">
-      <h2 class="product-name">Bang</h2>
-      <p class="product-description">
-        Discover the charm of artisanal craftsmanship with this handwoven
-        basket..
-      </p>
-      <span class="product-price">₱200</span>
-      <button class="add-to-cart">Add to Cart</button>
-    </div>
-  </div>
-  <div class="product-card">
-    <img
-      src="../../assets/sagaba.png"
-      alt="Product Name"
-      class="product-image"
-    />
-    <div class="product-info">
-      <h2 class="product-name">Sagaba</h2>
-      <p class="product-description">
-        Short description of the product goes here.
-      </p>
-      <span class="product-price">₱200</span>
-      <button class="add-to-cart">Add to Cart</button>
-    </div>
-  </div>
-  <div class="product-card">
-    <img
-      src="../../assets/Baringan.png"
-      alt="Product Name"
-      class="product-image"
-    />
-    <div class="product-info">
-      <h2 class="product-name">Baringan</h2>
-      <p class="product-description">
-        Short description of the product goes here.
-      </p>
-      <span class="product-price">₱200</span>
-      <button class="add-to-cart">Add to Cart</button>
-    </div>
-  </div>
-  <div class="product-card">
-    <img
-      src="../../assets/igyan.png"
-      alt="Product Name"
-      class="product-image"
-    />
-    <div class="product-info">
-      <h2 class="product-name">igyan</h2>
-      <p class="product-description">
-        Short description of the product goes here.
-      </p>
-      <span class="product-price">₱200</span>
-      <button class="add-to-cart">Add to Cart</button>
-    </div>
-  </div>
-
-  <div class="product-card">
-    <img
-      src="../../assets/Bayayong.png"
-      alt="Product Name"
-      class="product-image"
-    />
-    <div class="product-info">
-      <h2 class="product-name">Bayayong</h2>
-      <p class="product-description">
-        Short description of the product goes here.
-      </p>
-      <span class="product-price">₱200</span>
-      <button class="add-to-cart">Add to Cart</button>
+      <h2 class="product-name">{{ product.name }}</h2>
+      <p class="product-description">{{ product.description }}</p>
+      <div class="w-100 d-flex align-items-center justify-content-between">
+        <span class="product-price">₱{{ product.price }}</span>
+        <button class="btn btn-success btn-sm" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+      </div>
     </div>
   </div>
 </div>

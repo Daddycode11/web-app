@@ -1,0 +1,143 @@
+<div class="modal-header">
+  <h5 class="modal-title">Create Product</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="productForm$" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          productForm$.controls['name'].invalid &&
+          productForm$.controls['name'].touched
+        "
+        class="text-danger"
+      >
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        id="description"
+        type="text"
+        formControlName="description"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          productForm$.controls['description'].invalid &&
+          productForm$.controls['description'].touched
+        "
+        class="text-danger"
+      >
+        Description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        id="price"
+        type="number"
+        formControlName="price"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          productForm$.controls['price'].invalid &&
+          productForm$.controls['price'].touched
+        "
+        class="text-danger"
+      >
+        Price is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input
+        id="category"
+        type="text"
+        formControlName="category"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          productForm$.controls['category'].invalid &&
+          productForm$.controls['category'].touched
+        "
+        class="text-danger"
+      >
+        Category is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Stock</label>
+      <input
+        id="stock"
+        type="number"
+        formControlName="stock"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          productForm$.controls['stock'].invalid &&
+          productForm$.controls['stock'].touched
+        "
+        class="text-danger"
+      >
+        Stock is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="file">Product Image</label>
+      <input
+        id="file"
+        type="file"
+        class="form-control"
+        (change)="onFileChange($event)"
+      />
+      <div
+        *ngIf="
+          productForm$.controls['file'].invalid &&
+          productForm$.controls['file'].touched
+        "
+        class="text-danger"
+      >
+        Product image is required.
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="productForm$.invalid"
+      >
+        Create Product
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="activeModal.dismiss()"
+      >
+        Close
+      </button>
+    </div>
+  </form>
+</div>

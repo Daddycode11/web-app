@@ -110,7 +110,12 @@
     </li>
   </ul>
 </nav>
-
+<div *ngIf="users$" class="w-100 p-3">
+  <app-tourist-header
+    [users]="users$"
+    (onLoggedOut)="logout()"
+  ></app-tourist-header>
+</div>
 <main>
   <div
     class="header-container d-flex align-items-center justify-content-between p-6 bg-dark-green position-relative"
@@ -124,14 +129,13 @@
         height="100px"
         class="rounded-circle"
       />
+
       <h1 class="fw-bold fs-4 mt-1">
         WEB - BASED COMMUNITY SUPPORT HUB FOR THE CULTURE AND TOURIST
         DESTANATION
       </h1>
-
-      <!-- Login button moved next to the text -->
-      <a class="btn btn-success ms-4" routerLink="/login-page">Login</a>
-      <a class="btn btn-primary ms-2" routerLink="/Register">Register </a>
+      <a class="btn btn-success ms-4" (click)="openLogin()">Login</a>
+      <a class="btn btn-primary ms-2" (click)="openRegister()">Register </a>
     </div>
   </div>
   <router-outlet></router-outlet>
