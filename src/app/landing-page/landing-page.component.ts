@@ -15,6 +15,8 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from '../auth/login/login.component';
 import { TouristHeaderComponent } from '../tourist/tourist-header/tourist-header.component';
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../services/cart.service';
+import { Cart, CartWithProduct } from '../../models/cart';
 
 @Component({
   selector: 'app-landing-page',
@@ -33,15 +35,25 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   modalService = inject(NgbModal);
 
   users$: Users | null | undefined;
+  cart$: CartWithProduct[] = [];
   toastr = inject(ToastrService);
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private cartService: CartService
+  ) {
     this.authService.listenToUsers().subscribe((data: Users | null) => {
       this.users$ = data;
-      console.log(this.users$);
+
       if (this.users$ !== null) {
         if (this.users$.type === UserType.ADMIN) {
           console.log(this.users$.type === UserType.ADMIN);
           this.router.navigate(['/administrator']);
+        } else {
+          cartService.getAllMyCart(this.users$.id).subscribe((data) => {
+            this.cart$ = data;
+            console.log(data);
+          });
         }
       }
     });

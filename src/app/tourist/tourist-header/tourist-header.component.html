@@ -1,7 +1,4 @@
-<div
-  class="d-flex align-items-center justify-content-between w-100"
-  *ngIf="carts$ | async as cart"
->
+<div class="d-flex align-items-center justify-content-between w-100">
   <div class="d-flex gap-2">
     <h1>{{ users.name }}</h1>
   </div>
@@ -49,28 +46,58 @@
       <div *ngIf="cart.length === 0">
         <p>Your cart is empty.</p>
       </div>
-      <div *ngFor="let item of cart">
-        <div class="card mb-3">
-          <div class="row g-0">
-            <div class="col-md-4">
+      <div class="d-flex flex-column h-100 overflow-hidden p-3">
+        <ul class="list-group flex-grow-1 overflow-auto">
+          <li class="list-group-item" *ngFor="let item of cart; index as i">
+            <div class="d-flex gap-3 align-items-center">
               <img
                 src="{{ item.product.imageUrl }}"
-                class="img-fluid rounded-start"
+                class="img-fluid rounded-3"
+                width="100px"
+                height="100px"
                 alt="{{ item.product.name }}"
               />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
+              <div class="flex-grow-1">
                 <h5 class="card-title">{{ item.product.name }}</h5>
-                <p class="card-text">Quantity: {{ item.cart.quantity }}</p>
+
                 <p class="card-text">
                   <small class="text-muted">₱{{ item.product.price }}</small>
                 </p>
-                <button class="btn btn-warning btn-sm">+</button>
-                <button class="btn btn-danger btn-sm">-</button>
+                <div class="d-flex align-items-center gap-3">
+                  <button
+                    class="btn btn-warning btn-sm"
+                    (click)="incrementQuantity(item)"
+                  >
+                    +
+                  </button>
+                  <h6>{{ item.cart.quantity }}</h6>
+                  <button
+                    class="btn btn-danger btn-sm"
+                    (click)="decrementQuantity(item)"
+                  >
+                    -
+                  </button>
+                </div>
               </div>
+              <input
+                type="checkbox"
+                (change)="toggleItem($event, item)"
+                class="form-check-input me-2"
+              />
             </div>
+          </li>
+        </ul>
+
+        <div
+          class="w-100 p-3 d-flex align-items-center justify-content-end gap-3"
+        >
+          <div class="">
+            <h5 class="fw-bold text-success">
+              {{ itemTotal }}
+            </h5>
+            <h6>Total</h6>
           </div>
+          <button class="btn btn-dark" (click)="checkout()">Checkout</button>
         </div>
       </div>
     </div>

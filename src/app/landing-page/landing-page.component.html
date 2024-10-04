@@ -113,6 +113,7 @@
 <div *ngIf="users$" class="w-100 p-3">
   <app-tourist-header
     [users]="users$"
+    [cart]="cart$"
     (onLoggedOut)="logout()"
   ></app-tourist-header>
 </div>
