@@ -1,61 +1,55 @@
 import { Injectable } from '@angular/core';
-import { from, Observable, switchMap } from 'rxjs';
+import { from, map, mergeMap, Observable, switchMap, toArray } from 'rxjs';
 import { Cart, cartConverter, CartWithProduct } from '../../models/cart';
 import {
   collection,
+  collectionData,
   deleteDoc,
   doc,
+  docData,
   Firestore,
   getDoc,
   getDocs,
+  increment,
   query,
   setDoc,
   updateDoc,
   where,
+  writeBatch,
 } from '@angular/fire/firestore';
-import { Products } from '../../models/products';
+import { Products, productsConverter } from '../../models/products';
 export const CART_COLLECTION = 'carts';
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   constructor(private firestore: Firestore) {}
-
   getAllMyCart(userID: string): Observable<CartWithProduct[]> {
-    const cartRef = collection(this.firestore, CART_COLLECTION);
-    const productsRef = collection(this.firestore, 'products');
+    const cartRef = collection(this.firestore, CART_COLLECTION).withConverter(
+      cartConverter
+    );
+    const productsRef = collection(this.firestore, 'products').withConverter(
+      productsConverter
+    );
 
     const q = query(cartRef, where('userID', '==', userID));
 
-    return from(getDocs(q)).pipe(
-      switchMap((cartSnapshot) => {
-        const cartItems = cartSnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Cart[];
-        const productQueries = cartItems.map((cartItem) =>
-          getDocs(query(productsRef, where('id', '==', cartItem.productID)))
-        );
-
-        return from(Promise.all(productQueries)).pipe(
-          switchMap((productSnapshots) => {
-            const cartWithProducts: CartWithProduct[] = [];
-            cartItems.forEach((cartItem, index) => {
-              const product = productSnapshots[index].docs.map((doc) => ({
-                id: doc.id,
-                ...doc.data(),
-              })) as Products[];
-              if (product.length > 0) {
-                cartWithProducts.push({ cart: cartItem, product: product[0] });
-              }
-            });
-            return [cartWithProducts];
-          })
-        );
-      })
+    return collectionData(q).pipe(
+      mergeMap((carts: Cart[]) =>
+        from(carts).pipe(
+          mergeMap((cart: Cart) =>
+            from(getDoc(doc(productsRef, cart.productID))).pipe(
+              map((productDoc) => {
+                const product = productDoc.data() as Products;
+                return { cart, product };
+              })
+            )
+          ),
+          toArray()
+        )
+      )
     );
   }
-
   async addToCart(cart: Cart): Promise<void> {
     const cartRef = collection(this.firestore, 'carts').withConverter(
       cartConverter
@@ -84,12 +78,18 @@ export class CartService {
     await deleteDoc(cartDocRef);
   }
 
-  async increaseCartQuantity(cartID: string): Promise<void> {
+  deleteCartInBatch(carts: string[]) {
+    const batch = writeBatch(this.firestore);
+    carts.forEach((e) => {
+      batch.delete(doc(this.firestore, `carts/${e}`));
+    });
+    return batch.commit();
+  }
+  async increaseCartQuantity(cartID: string, quantity: number): Promise<void> {
     const cartDocRef = doc(this.firestore, `carts/${cartID}`).withConverter(
       cartConverter
     );
-    const cartDoc = await getDoc(cartDocRef);
-    const currentQuantity = cartDoc.data()?.quantity || 0;
-    await updateDoc(cartDocRef, { quantity: currentQuantity + 1 });
+
+    await updateDoc(cartDocRef, { quantity: increment(quantity) });
   }
 }
