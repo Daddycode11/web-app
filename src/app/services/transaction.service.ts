@@ -6,6 +6,7 @@ import {
   doc,
   docData,
   Firestore,
+  orderBy,
   query,
   setDoc,
   updateDoc,
@@ -20,7 +21,22 @@ import { Transactions, transactionsConverter } from '../../models/transaction';
 export class TransactionService {
   constructor(private firestore: Firestore) {}
 
-  getAllTransactions(userID: string): Observable<Transactions[]> {
+  //for admin to get all orders
+
+  getAllTransactions(): Observable<Transactions[]> {
+    const transactionsRef = collection(
+      this.firestore,
+      'transactions'
+    ).withConverter(transactionsConverter);
+    const q = query(transactionsRef, orderBy('createdAt', 'desc'));
+
+    return collectionData(q).pipe(
+      map((transactions) => transactions as Transactions[])
+    );
+  }
+
+  //for users to see his orders
+  getAllTransactionsByUsers(userID: string): Observable<Transactions[]> {
     const transactionsRef = collection(
       this.firestore,
       'transactions'
@@ -32,6 +48,7 @@ export class TransactionService {
     );
   }
 
+  //to view transaction info
   getTransactionById(transactionID: string): Observable<Transactions> {
     const transactionDocRef = doc(
       this.firestore,
@@ -40,6 +57,7 @@ export class TransactionService {
     return docData(transactionDocRef);
   }
 
+  //create transaction / order
   addTransaction(transaction: Transactions): Promise<void> {
     const transactionDocRef = doc(
       collection(this.firestore, 'transactions'),
@@ -49,6 +67,7 @@ export class TransactionService {
     return setDoc(transactionDocRef, transaction);
   }
 
+  //update transation info / update order
   updateTransaction(transaction: Transactions): Promise<void> {
     const transactionDocRef = doc(
       this.firestore,
@@ -57,6 +76,7 @@ export class TransactionService {
     return updateDoc(transactionDocRef, { ...transaction });
   }
 
+  //delete order / for admin
   deleteTransaction(transactionID: string): Promise<void> {
     const transactionDocRef = doc(
       this.firestore,

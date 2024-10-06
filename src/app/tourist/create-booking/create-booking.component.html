@@ -1,0 +1,93 @@
+<div class="modal-header">
+  <h6 class="modal-title">Booking Form</h6>
+</div>
+<div class="modal-body">
+  <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="destination" class="form-label">Destination</label>
+      <input
+        type="text"
+        id="destination"
+        readonly
+        formControlName="destination"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          bookingForm.get('destination')?.invalid &&
+          bookingForm.get('destination')?.touched
+        "
+        class="text-danger"
+      >
+        Destination is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price Per Person</label>
+      <input
+        type="number"
+        readonly
+        id="price"
+        formControlName="price"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          bookingForm.get('price')?.invalid && bookingForm.get('price')?.touched
+        "
+        class="text-danger"
+      >
+        Price is required and must be a positive number.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="persons" class="form-label">Number of Persons</label>
+      <input
+        type="number"
+        id="persons"
+        formControlName="persons"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          bookingForm.get('persons')?.invalid &&
+          bookingForm.get('persons')?.touched
+        "
+        class="text-danger"
+      >
+        Please enter a valid number of persons.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="scheduledDate" class="form-label">Scheduled Date</label>
+      <input
+        type="date"
+        id="scheduledDate"
+        formControlName="scheduledDate"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          bookingForm.get('scheduledDate')?.invalid &&
+          bookingForm.get('scheduledDate')?.touched
+        "
+        class="text-danger"
+      >
+        Please select a scheduled date.
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-between w-100 p-3">
+      <h5>Total Amount: ₱{{ totalAmount }}</h5>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="bookingForm.invalid"
+      >
+        Book Now
+      </button>
+    </div>
+  </form>
+</div>
