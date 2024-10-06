@@ -1,145 +1,15 @@
 <div class="tourist-spot-list">
-  <!-- Dumahon Mountain -->
-  <div class="tourist-spot-card">
-    <img
-      src="../../assets/Dumahon mountain.jpg"
-      alt="Dumahon Mountain"
-      class="spot-image"
-    />
+  <div class="tourist-spot-card" *ngFor="let spot of touristSpots">
+    <img [src]="spot.imageUrl" [alt]="spot.name" class="spot-image" />
     <div class="spot-info">
-      <h2 class="spot-name">Dumahon Mountain</h2>
-      <p class="tap-to-see-more" onclick="toggleDescription(this)">
-        Tap to see more
+      <h2 class="spot-name">{{ spot.name }}</h2>
+      <p class="tap-to-see-more" (click)="navigateToViewTouristSpot(spot)">
+        see more
       </p>
-      <p class="spot-description" style="display: none">
-        Dumahon Mountain is a breathtaking tourist destination located in
-        Barangay Malpalon, Calintaan, Occidental Mindoro. Known for its lush
-        greenery, Dumahon Mountain offers adventurers a serene escape into
-        nature. The mountain's trails are popular among hikers and nature
-        lovers, providing panoramic views of the surrounding landscape,
-        including nearby valleys and forests. Whether you're seeking a quiet
-        spot for relaxation or a thrilling hike, Dumahon Mountain is an ideal
-        place to experience the natural beauty and tranquility of Calintaan.
+      <p class="spot-description">
+        {{ spot.description }}
       </p>
-      <button class="book-now">Book Now</button>
-    </div>
-  </div>
-
-  <!-- Sandulayan Mountain -->
-  <div class="tourist-spot-card">
-    <img
-      src="../../assets/Sandulayan Mountain.JPG"
-      alt="Sandulayan Mountain"
-      class="spot-image"
-    />
-    <div class="spot-info">
-      <h2 class="spot-name">Sandulayan Mountain</h2>
-      <p class="tap-to-see-more" onclick="toggleDescription(this)">
-        Tap to see more
-      </p>
-      <p class="spot-description" style="display: none">
-        Sandulayan Mountain is a scenic tourist spot nestled in Barangay
-        Malpalon, Calintaan, Occidental Mindoro. This mountain is famed for its
-        rugged beauty and offers an adventurous escape for trekkers and outdoor
-        enthusiasts. The ascent provides stunning views of the surrounding
-        forests and rolling hills, with rich biodiversity along the way.
-        Sandulayan Mountain is a must-visit for those seeking both adventure and
-        tranquility, as its unspoiled natural landscape creates a perfect spot
-        for hiking, camping, and appreciating the beauty of nature in Calintaan.
-      </p>
-      <button class="book-now">Book Now</button>
-    </div>
-  </div>
-
-  <!-- Makatiklas -->
-  <div class="tourist-spot-card">
-    <img
-      src="../../assets/Makatiklas.png"
-      alt="Makatiklas"
-      class="spot-image"
-    />
-    <div class="spot-info">
-      <h2 class="spot-name">Makatiklas</h2>
-      <p class="tap-to-see-more" onclick="toggleDescription(this)">
-        Tap to see more
-      </p>
-      <p class="spot-description" style="display: none">
-        Makatiklas is a hidden gem in Barangay Malpalon, Calintaan, Occidental
-        Mindoro, renowned for its natural beauty and serene environment. This
-        tourist spot features a tranquil river surrounded by dense forests,
-        offering visitors a peaceful retreat in nature. The cool, clear waters
-        of the river make it an ideal location for swimming, picnicking, and
-        unwinding in a picturesque setting. Makatiklas is perfect for nature
-        lovers seeking a quiet escape to experience the rustic charm and
-        unspoiled landscape of Calintaan.
-      </p>
-      <button class="book-now">Book Now</button>
-    </div>
-  </div>
-
-  <!-- Salugsog Falls -->
-  <div class="tourist-spot-card">
-    <img
-      src="../../assets/DJI_20240615152215_0010_D.JPG"
-      alt="Salugsog Falls"
-      class="spot-image"
-    />
-    <div class="spot-info">
-      <h2 class="spot-name">Salugsog Falls</h2>
-      <p class="tap-to-see-more" onclick="toggleDescription(this)">
-        Tap to see more
-      </p>
-      <p class="spot-description" style="display: none">
-        Salugsog Falls is a captivating waterfall located in Barangay Malpalon,
-        Calintaan, Occidental Mindoro. This hidden treasure is known for its
-        pristine, cascading waters that flow into a refreshing natural pool,
-        surrounded by lush vegetation. Salugsog Falls offers visitors a peaceful
-        retreat with the soothing sounds of the water and the beauty of the
-        untouched surroundings. It’s an ideal spot for nature lovers who enjoy
-        swimming, trekking, or simply relaxing by the water, making it a
-        must-visit destination for those exploring the scenic landscapes of
-        Calintaan.
-      </p>
-      <button class="book-now">Book Now</button>
-    </div>
-  </div>
-
-  <!-- Laylayan Falls -->
-  <div class="tourist-spot-card">
-    <img
-      src="../../assets/laylayan Falls.png"
-      alt="Laylayan Falls"
-      class="spot-image"
-    />
-    <div class="spot-info">
-      <h2 class="spot-name">Laylayan Falls</h2>
-      <p class="tap-to-see-more" onclick="toggleDescription(this)">
-        Tap to see more
-      </p>
-      <p class="spot-description" style="display: none">
-        Laylayan Falls is a stunning natural attraction in Barangay Malpalon,
-        Calintaan, Occidental Mindoro. Known for its multi-tiered cascades, the
-        falls offer a picturesque and serene setting for adventurers and nature
-        lovers. The surrounding area is rich in lush greenery, providing a
-        tranquil atmosphere perfect for hiking, picnicking, and swimming in the
-        cool, clear waters. Laylayan Falls is a must-see destination for those
-        seeking to explore the natural beauty of Calintaan, offering a
-        refreshing escape into nature's pristine charm.
-      </p>
-      <button class="book-now">Book Now</button>
+      <button class="book-now" (click)="createBooking(spot)">Book Now</button>
     </div>
   </div>
 </div>
-
-<script>
-  function toggleDescription(element) {
-    const description = element.nextElementSibling;
-    if (description.style.display === "none") {
-      description.style.display = "block";
-      element.innerHTML = "See less";
-    } else {
-      description.style.display = "none";
-      element.innerHTML = "Tap to see more";
-    }
-  }
-</script>
