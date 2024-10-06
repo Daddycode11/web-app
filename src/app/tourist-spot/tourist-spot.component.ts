@@ -3,6 +3,9 @@ import { TouristSpot } from '../../models/tourist.spot';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateBookingComponent } from '../tourist/create-booking/create-booking.component';
 import { CommonModule } from '@angular/common';
+import { Users } from '../../models/users';
+import { AuthService } from '../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tourist-spot',
@@ -55,12 +58,20 @@ export class TouristSpotComponent {
       price: 100,
     },
   ];
-
+  user$: Users | null = null;
+  constructor(private authService: AuthService, private toastr: ToastrService) {
+    authService.listenToUsers().subscribe((data: Users | null) => {
+      this.user$ = data;
+    });
+  }
   //navigate to view tourist spot component
   navigateToViewTouristSpot(spot: TouristSpot) {}
 
   createBooking(spot: TouristSpot) {
-    console.log(spot);
+    if (this.user$ == null) {
+      this.toastr.error('No user found');
+      return;
+    }
     const modal = this.modalService.open(CreateBookingComponent);
     modal.componentInstance.spot = spot;
   }
