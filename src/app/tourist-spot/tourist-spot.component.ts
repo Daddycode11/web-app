@@ -27,7 +27,7 @@ export class TouristSpotComponent {
     },
     {
       name: 'Sandulayan Mountain',
-      imageUrl: '../../assets/Sandulayan Mountain.JPG',
+      imageUrl: '../../assets/sandulayan mountain.jpg',
       description:
         'Sandulayan Mountain is a scenic tourist spot nestled in Barangay Malpalon, Calintaan, Occidental Mindoro. This mountain is famed for its rugged beauty and offers an adventurous escape for trekkers and outdoor enthusiasts.',
       location: 'Barangay Malpalon, Calintaan, Occidental Mindoro',
@@ -43,7 +43,7 @@ export class TouristSpotComponent {
     },
     {
       name: 'Salugsog Falls',
-      imageUrl: '../../assets/DJI_20240615152215_0010_D.JPG',
+      imageUrl: '../../assets/slugsog falls.jpg',
       description:
         'Salugsog Falls is a captivating waterfall located in Barangay Malpalon, Calintaan, Occidental Mindoro. This hidden treasure is known for its pristine, cascading waters that flow into a refreshing natural pool, surrounded by lush vegetation.',
       location: 'Barangay Malpalon, Calintaan, Occidental Mindoro',

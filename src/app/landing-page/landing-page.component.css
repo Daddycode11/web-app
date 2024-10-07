@@ -557,3 +557,61 @@ body {
 .add-to-cart:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
+/* General Button Styling */
+button {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+/* General Button Styling */
+button {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Login Button Styling */
+.login-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.login-btn:hover {
+  background-color: #0069d9;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Register Button Styling */
+.register-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.register-btn:hover {
+  background-color: #218838;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logout Button Styling */
+.logout-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Align buttons */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}

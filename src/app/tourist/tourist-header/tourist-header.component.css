@@ -1,0 +1,80 @@
+/* Header */
+.user-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.btn-outline-dark {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.5rem;
+}
+
+.offcanvas-header h5 {
+  font-weight: bold;
+}
+
+/* Cart List */
+.cart-items-container {
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item h5 {
+  font-size: 1.1rem;
+}
+
+.cart-item .btn-sm {
+  padding: 0.5rem 0.75rem;
+}
+
+.cart-footer {
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.total-summary h5 {
+  font-size: 1.25rem;
+}
+
+.btn-dark {
+  background-color: #343a40;
+  border-color: #343a40;
+  transition: background-color 0.3s;
+}
+
+.btn-dark:hover {
+  background-color: #212529;
+}
+
+@media (max-width: 768px) {
+  .btn-outline-dark {
+    padding: 0.5rem 1rem;
+  }
+  .list-group-item {
+    padding: 0.75rem;
+  }
+  .cart-item img {
+    width: 80px;
+    height: 80px;
+  }
+}

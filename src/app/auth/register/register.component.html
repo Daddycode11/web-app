@@ -1,45 +1,64 @@
-<div class="modal-header">
+<div class="modal-header bg-primary text-white">
   <h5 class="modal-title">Register</h5>
 </div>
-<div class="modal-body p-3">
-  <form [formGroup]="userForm$" (ngSubmit)="onSubmit()" class="form-row">
+
+<div class="modal-body p-4">
+  <form [formGroup]="userForm$" (ngSubmit)="onSubmit()" class="row g-3">
+    <!-- Name Field -->
     <div class="form-group col-md-6">
-      <label for="name">Name</label>
-      <input id="name" formControlName="name" class="form-control" />
+      <label for="name" class="form-label">Name</label>
+      <input
+        id="name"
+        formControlName="name"
+        class="form-control"
+        placeholder="Enter your name"
+      />
       <div
         *ngIf="
           userForm$.controls['name'].invalid &&
           userForm$.controls['name'].touched
         "
-        class="text-danger"
+        class="text-danger small"
       >
         Name is required.
       </div>
     </div>
 
+    <!-- Phone Field -->
     <div class="form-group col-md-6">
-      <label for="phone">Phone</label>
-      <input id="phone" formControlName="phone" class="form-control" />
+      <label for="phone" class="form-label">Phone</label>
+      <input
+        id="phone"
+        formControlName="phone"
+        class="form-control"
+        placeholder="Enter your phone number"
+      />
       <div
         *ngIf="
           userForm$.controls['phone'].invalid &&
           userForm$.controls['phone'].touched
         "
-        class="text-danger"
+        class="text-danger small"
       >
         Phone is required.
       </div>
     </div>
 
+    <!-- Email Field -->
     <div class="form-group col-md-6">
-      <label for="email">Email</label>
-      <input id="email" formControlName="email" class="form-control" />
+      <label for="email" class="form-label">Email</label>
+      <input
+        id="email"
+        formControlName="email"
+        class="form-control"
+        placeholder="Enter your email"
+      />
       <div
         *ngIf="
           userForm$.controls['email'].invalid &&
           userForm$.controls['email'].touched
         "
-        class="text-danger"
+        class="text-danger small"
       >
         <div *ngIf="userForm$.controls['email'].errors?.['required']">
           Email is required.
@@ -50,20 +69,22 @@
       </div>
     </div>
 
+    <!-- Password Field -->
     <div class="form-group col-md-6">
-      <label for="password">Password</label>
+      <label for="password" class="form-label">Password</label>
       <input
         id="password"
         type="password"
         formControlName="password"
         class="form-control"
+        placeholder="Enter your password"
       />
       <div
         *ngIf="
           userForm$.controls['password'].invalid &&
           userForm$.controls['password'].touched
         "
-        class="text-danger"
+        class="text-danger small"
       >
         <div *ngIf="userForm$.controls['password'].errors?.['required']">
           Password is required.
@@ -74,10 +95,15 @@
       </div>
     </div>
 
+    <!-- Button Group -->
     <div class="form-group col-12 text-end">
-      <div class="d-flex gap-3">
-        <button class="btn btn-light" (click)="activeModal.close()">
-          cancel
+      <div class="d-flex justify-content-end gap-2">
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          (click)="activeModal.close()"
+        >
+          Cancel
         </button>
         <button
           type="submit"

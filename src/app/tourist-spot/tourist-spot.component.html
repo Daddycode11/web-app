@@ -1,15 +1,31 @@
-<div class="tourist-spot-list">
-  <div class="tourist-spot-card" *ngFor="let spot of touristSpots">
-    <img [src]="spot.imageUrl" [alt]="spot.name" class="spot-image" />
-    <div class="spot-info">
-      <h2 class="spot-name">{{ spot.name }}</h2>
-      <p class="tap-to-see-more" (click)="navigateToViewTouristSpot(spot)">
-        see more
-      </p>
-      <p class="spot-description">
-        {{ spot.description }}
-      </p>
-      <button class="book-now" (click)="createBooking(spot)">Book Now</button>
+<div class="tourist-spot-list row gx-4 gy-4 justify-content-center">
+  <div
+    class="tourist-spot-card col-12 col-sm-6 col-md-4 col-lg-3"
+    *ngFor="let spot of touristSpots"
+  >
+    <div class="card h-100 shadow-sm text-center">
+      <img
+        [src]="spot.imageUrl"
+        [alt]="spot.name"
+        class="spot-image card-img-top"
+      />
+      <div
+        class="spot-info card-body d-flex flex-column justify-content-center align-items-center"
+      >
+        <h2 class="spot-name h5 mb-2">{{ spot.name }}</h2>
+        <p
+          class="tap-to-see-more text-info"
+          (click)="navigateToViewTouristSpot(spot)"
+        >
+          See more
+        </p>
+        <p class="spot-description text-muted mb-3">
+          {{ spot.description }}
+        </p>
+        <button class="shopee-book-now" (click)="createBooking(spot)">
+          Book Now
+        </button>
+      </div>
     </div>
   </div>
 </div>

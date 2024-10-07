@@ -1,0 +1,22 @@
+.modal-header {
+  border-bottom: 2px solid #dee2e6;
+}
+.modal-body {
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.input-group-text {
+  background-color: #007bff;
+  color: white;
+}
+.form-control:focus {
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+}
+.btn-primary {
+  padding: 10px 20px;
+  font-size: 16px;
+}

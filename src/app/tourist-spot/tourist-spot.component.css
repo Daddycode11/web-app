@@ -1,58 +1,121 @@
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
+/* Tourist Spot List */
 .tourist-spot-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
+  gap: 1.5rem;
+  justify-content: center; /* Ensures the cards are centered in the row */
 }
 
+/* Tourist Spot Card */
 .tourist-spot-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 300px;
-  margin: 10px;
-  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
 }
 
+.tourist-spot-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Spot Image */
 .spot-image {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  transition: transform 0.3s;
 }
 
+.tourist-spot-card:hover .spot-image {
+  transform: scale(1.05);
+}
+
+/* Spot Info */
 .spot-info {
-  padding: 15px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically centers the content */
+  align-items: center; /* Horizontally centers the content */
+  text-align: center; /* Ensures the text inside the card is centered */
+  height: 100%;
 }
 
+/* Spot Name */
 .spot-name {
-  font-size: 1.5em;
-  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
 }
 
+/* Spot Description */
 .spot-description {
-  color: #666;
-  margin: 10px 0;
+  font-size: 0.9rem;
+  color: #6c757d;
 }
 
-.book-now {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 15px;
-  font-size: 1em;
+/* Tap to See More Link */
+.tap-to-see-more {
+  font-size: 0.9rem;
+  color: #007bff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: underline;
+}
+
+.tap-to-see-more:hover {
+  color: #0056b3;
+}
+
+/* Book Now Button */
+.book-now {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  transition: background-color 0.3s;
 }
 
 .book-now:hover {
   background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .spot-image {
+    height: 160px;
+  }
+
+  .tourist-spot-card {
+    margin-bottom: 1.5rem;
+  }
+}
+/* Shopee-style "Book Now" Button */
+.shopee-book-now {
+  background-color: #ff5722; /* Shopee's signature orange color */
+  color: #fff; /* White text for contrast */
+  font-size: 1.125rem; /* Slightly larger font for better visibility */
+  font-weight: 600; /* Bold text */
+  padding: 0.75rem 1.5rem; /* Comfortable padding for touch devices */
+  border-radius: 1.5rem; /* Rounded corners, similar to Shopee style */
+  border: none; /* No border */
+  text-transform: uppercase; /* Uppercase text for emphasis */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Full width for better touch area */
+}
+
+.shopee-book-now:hover {
+  background-color: #e64a19; /* Darker orange on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a slight lift effect */
+}
+
+.shopee-book-now:active {
+  background-color: #d84315; /* Even darker orange when clicked */
+}
+
+.shopee-book-now:disabled {
+  background-color: #ffc1b0; /* Light orange when disabled */
+  cursor: not-allowed; /* Not allowed cursor when disabled */
 }

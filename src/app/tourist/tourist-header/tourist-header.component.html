@@ -1,10 +1,11 @@
-<div class="d-flex align-items-center justify-content-between w-100">
+<div class="d-flex align-items-center justify-content-between w-100 mb-3">
   <div class="d-flex gap-2">
-    <h1>{{ users.name }}</h1>
+    <h1 class="user-name">{{ users.name }}</h1>
   </div>
-  <div class="d-flex gap-2">
+  <div class="d-flex gap-3">
+    <!-- Cart Button -->
     <button
-      class="btn"
+      class="btn btn-outline-dark position-relative"
       data-bs-toggle="offcanvas"
       href="#offcanvasExample"
       role="button"
@@ -12,93 +13,100 @@
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
+        width="24"
+        height="24"
         fill="currentColor"
-        class="bi bi-cart me-3"
+        class="bi bi-cart me-2"
         viewBox="0 0 16 16"
       >
         <path
           d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
         />
       </svg>
-      <span class="badge text-bg-secondary">{{ cart.length }}</span>
+      <span
+        class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle"
+      >
+        {{ cart.length }}
+      </span>
     </button>
+    <!-- Logout Button -->
     <button class="btn btn-danger" (click)="onUserClick()">Logout</button>
   </div>
+</div>
 
-  <div
-    class="offcanvas offcanvas-end"
-    tabindex="-1"
-    id="offcanvasExample"
-    aria-labelledby="offcanvasExampleLabel"
-  >
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">My Cart</h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
+<!-- Cart Off-Canvas -->
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">My Cart</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div *ngIf="cart.length === 0" class="text-center">
+      <p>Your cart is empty.</p>
     </div>
-    <div class="offcanvas-body">
-      <div *ngIf="cart.length === 0">
-        <p>Your cart is empty.</p>
-      </div>
-      <div class="d-flex flex-column h-100 overflow-hidden p-3">
-        <ul class="list-group flex-grow-1 overflow-auto">
-          <li class="list-group-item" *ngFor="let item of cart; index as i">
-            <div class="d-flex gap-3 align-items-center">
-              <img
-                src="{{ item.product.imageUrl }}"
-                class="img-fluid rounded-3"
-                width="100px"
-                height="100px"
-                alt="{{ item.product.name }}"
-              />
-              <div class="flex-grow-1">
-                <h5 class="card-title">{{ item.product.name }}</h5>
 
-                <p class="card-text">
-                  <small class="text-muted">₱{{ item.product.price }}</small>
-                </p>
-                <div class="d-flex align-items-center gap-3">
-                  <button
-                    class="btn btn-warning btn-sm"
-                    (click)="incrementQuantity(item)"
-                  >
-                    +
-                  </button>
-                  <h6>{{ item.cart.quantity }}</h6>
-                  <button
-                    class="btn btn-danger btn-sm"
-                    (click)="decrementQuantity(item)"
-                  >
-                    -
-                  </button>
-                </div>
-              </div>
-              <input
-                type="checkbox"
-                (change)="toggleItem($event, item)"
-                class="form-check-input me-2"
-              />
-            </div>
-          </li>
-        </ul>
-
-        <div
-          class="w-100 p-3 d-flex align-items-center justify-content-end gap-3"
+    <div
+      class="cart-items-container d-flex flex-column h-100 overflow-hidden p-3"
+    >
+      <ul class="list-group flex-grow-1 overflow-auto">
+        <li
+          class="list-group-item border-0 mb-3 p-0"
+          *ngFor="let item of cart; index as i"
         >
-          <div class="">
-            <h5 class="fw-bold text-success">
-              {{ itemTotal }}
-            </h5>
-            <h6>Total</h6>
+          <div class="cart-item d-flex gap-3 align-items-center">
+            <img
+              src="{{ item.product.imageUrl }}"
+              class="img-fluid rounded-3 shadow-sm"
+              width="100"
+              height="100"
+              alt="{{ item.product.name }}"
+            />
+            <div class="flex-grow-1">
+              <h5 class="mb-1">{{ item.product.name }}</h5>
+              <p class="text-muted mb-2">₱{{ item.product.price }}</p>
+              <div class="d-flex align-items-center gap-3">
+                <button
+                  class="btn btn-warning btn-sm"
+                  (click)="incrementQuantity(item)"
+                >
+                  +
+                </button>
+                <h6>{{ item.cart.quantity }}</h6>
+                <button
+                  class="btn btn-danger btn-sm"
+                  (click)="decrementQuantity(item)"
+                >
+                  -
+                </button>
+              </div>
+            </div>
+            <input
+              type="checkbox"
+              (change)="toggleItem($event, item)"
+              class="form-check-input me-2"
+            />
           </div>
-          <button class="btn btn-dark" (click)="checkout()">Checkout</button>
+        </li>
+      </ul>
+
+      <div
+        class="cart-footer w-100 p-3 d-flex align-items-center justify-content-between"
+      >
+        <div class="total-summary text-end">
+          <h5 class="fw-bold text-success">₱{{ itemTotal }}</h5>
+          <small>Total</small>
         </div>
+        <button class="btn btn-dark" (click)="checkout()">Checkout</button>
       </div>
     </div>
   </div>
